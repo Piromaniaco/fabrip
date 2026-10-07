@@ -1,6 +1,5 @@
 ﻿# ============================================================
 #  .gitignore  Portafolio fabrip
-#  Estrategia: ignorar TODO y permitir solo lo del portafolio.
 # ============================================================
 
 # ---------- Ignorar todo por defecto ----------
@@ -26,7 +25,6 @@
 !/.gitattributes
 
 # ---------- Excluir SIEMPRE ----------
-# Imágenes de WhatsApp (perfil actual se sube como archivo aparte si hace falta)
 WhatsApp*.jpeg
 WhatsApp*.jpg
 WhatsApp*.png
