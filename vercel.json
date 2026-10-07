@@ -1,0 +1,23 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/auth/login", "destination": "/api/auth/login" },
+    { "source": "/auth/callback", "destination": "/api/auth/callback" },
+    { "source": "/drive/video/:id", "destination": "https://drive.usercontent.google.com/download?id=:id&export=view&confirm=t" },
+    { "source": "/drive/thumb/:id", "destination": "https://lh3.googleusercontent.com/d/:id=s640" }
+  ],
+  "headers": [
+    {
+      "source": "/drive/video/:id",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/drive/thumb/:id",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    }
+  ]
+}

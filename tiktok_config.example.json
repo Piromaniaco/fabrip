@@ -1,0 +1,8 @@
+{
+  "_instrucciones": "Copia este archivo como 'tiktok_config.json' y pega ahi los datos de tu app de https://developers.tiktok.com/  (pestanas App > Manage Apps > tu app).",
+  "_scopes": "En la app habilita el scope 'video.list' (y 'user.info.basic').",
+  "_redirect_uri": "Debe coincidir EXACTAMENTE con el registrado en la app. TikTok exige https; si aun no tenes dominio, usa un tunel (ngrok / cloudflared) o deja http://localhost:8734/auth/callback por si te lo acepta en modo sandbox.",
+  "client_key": "PEGA_TU_CLIENT_KEY_AQUI",
+  "client_secret": "PEGA_TU_CLIENT_SECRET_AQUI",
+  "redirect_uri": "http://localhost:8734/auth/callback"
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Piromanniaco - Editor de video especializado en estilos reel y clips, compositor musical y programador argentino.">
+    <meta name="theme-color" content="#0a0a0c">
+    <!-- Sin Referer: si no, Vercel lo reenvía a Google Drive y los videos de
+         más de 100 MB caen en el aviso de análisis de virus en vez de reproducirse -->
+    <meta name="referrer" content="no-referrer">
+    <title>Fabri Piro - Editor de Video y Programador</title>
+
+    <!-- Marca JS antes del primer pintado: evita parpadeo del reveal -->
+    <script>document.documentElement.className += ' js';</script>
+    
+    <!-- Fuentes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Iconos de Font Awesome (CDN oficial) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css?v=26">
+</head>
+<body>
+    <!-- Fondo estilo editor de video: capas con parallax y profundidad -->
+    <div class="bg-editor" aria-hidden="true">
+        <div class="bg-layer bg-clips" data-speed="0.06"></div>
+        <div class="bg-layer bg-lanes" data-speed="0.20"></div>
+        <div class="bg-layer bg-ruler" data-speed="0.30"></div>
+        <div class="bg-layer bg-wave" data-speed="0.45"></div>
+        <div class="bg-layer bg-playhead" data-speed="0.14"></div>
+    </div>
+
+    <!-- Bordes superior e inferior: blur de profundidad (lejano ↔ cercano) -->
+    <div class="edge-blur edge-blur--top" aria-hidden="true"></div>
+    <div class="edge-blur edge-blur--bottom" aria-hidden="true"></div>
+
+    <!-- Intro de carga -->
+    <div class="intro-screen" aria-hidden="true">
+        <span class="intro-word">Fabri Piro</span>
+        <span class="intro-line"></span>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="profile-header">
+            <div class="profile-wrap">
+                <img src="WhatsApp Image 2026-10-06 at 8.28.21 AM.jpeg" alt="Foto de perfil de Piromanniaco" class="profile-img">
+            </div>
+            <h1 class="title">Fabri Piro</h1>
+            <p class="description">Editor de video estilizado en reel y clips en general, compositor musical y programador argentino apasionado por crear experiencias digitales únicas.</p>
+        </header>
+        
+        <!-- Divisor decorativo -->
+        <div class="divider"></div>
+
+        <!-- Portafolios: videos de la carpeta de Google Drive, en movimiento -->
+        <section class="portafolios-section" id="portafolios">
+            <h2 class="section-title reveal">Portafolios</h2>
+
+            <div class="pl-strip reveal" id="plStrip" role="region" aria-label="Portafolios en video">
+                <div class="pl-track" id="plTrack">
+                    <!-- Las tarjetas se inyectan desde script.js con /api/portafolios -->
+                </div>
+            </div>
+
+            <div class="pf-status pl-status" id="plStatus" role="status" hidden></div>
+        </section>
+
+        <!-- Mis Videos: videos de TikTok sincronizados con la API oficial -->
+        <section class="portfolio-section" id="portafolio">
+            <h2 class="section-title pf-title reveal">Mis Videos</h2>
+
+            <div class="carousel reveal" id="pfCarousel">
+                <button class="pf-nav pf-prev" id="pfPrev" type="button" aria-label="Video anterior">
+                    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                </button>
+
+                <div class="pf-viewport" id="pfViewport" tabindex="0" aria-label="Carrusel de videos de TikTok">
+                    <div class="pf-track" id="pfTrack">
+                        <span class="pf-spacer" aria-hidden="true"></span>
+                        <!-- Las tarjetas se inyectan desde script.js con /api/videos -->
+                        <span class="pf-spacer" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+                <button class="pf-nav pf-next" id="pfNext" type="button" aria-label="Video siguiente">
+                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class="pf-status" id="pfStatus" role="status" hidden></div>
+
+            <p class="pf-hint" id="pfHint" hidden>
+                <span id="pfHintText">Deslizá en horizontal para ver todos los videos</span>
+                <button class="pf-refresh" id="pfRefresh" type="button" title="Actualizar videos">
+                    <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+                </button>
+            </p>
+        </section>
+
+        <!-- Sección de contacto -->
+        <section class="contact-section">
+            <h2 class="section-title reveal">Conéctame</h2>
+            <div class="contact-grid">
+                <!-- TikTok -->
+                <div class="contact-card reveal tiktok">
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <div class="contact-label">TikTok</div>
+                    <a href="https://tiktok.com/@piromanniaco" class="link" target="_blank" rel="noopener">@piromanniaco</a>
+                </div>
+                
+                <!-- Gmail -->
+                <div class="contact-card reveal gmail">
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="contact-label">Gmail</div>
+                    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=Pirovanifabricio@gmail.com" class="link" target="_blank" rel="noopener">Pirovanifabricio@gmail.com</a>
+                </div>
+                
+                <!-- Facebook -->
+                <div class="contact-card reveal facebook">
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </div>
+                    <div class="contact-label">Facebook</div>
+                    <a href="https://www.facebook.com/share/1HzgddTLPz/" class="link" target="_blank" rel="noopener">Perfil Personal</a>
+                </div>
+                
+                <!-- Instagram -->
+                <div class="contact-card reveal instagram">
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="contact-label">Instagram</div>
+                    <a href="https://www.instagram.com/fabrip_ar/" class="link" target="_blank" rel="noopener">@fabrip_ar</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección de habilidades -->
+        <section class="about-section">
+            <h2 class="section-title reveal">Sobre Mi Trabajo</h2>
+            <div class="skills-container">
+                <div class="skill-tag reveal">Editor de Video</div>
+                <div class="skill-tag reveal">Reels & Clips</div>
+                <div class="skill-tag reveal">Composición Musical</div>
+                <div class="skill-tag reveal">Programación</div>
+                <div class="skill-tag reveal">Efectos Visuales</div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer reveal">
+            <p>&copy; 2026 Piromanniaco. Todos los derechos reservados.</p>
+            <div class="social-footer">
+                <a href="https://tiktok.com/@piromanniaco" class="social-link tiktok" title="TikTok" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/fabrip_ar/" class="social-link instagram" title="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1HzgddTLPz/" class="social-link facebook" title="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=Pirovanifabricio@gmail.com" class="social-link gmail" title="Email" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Visor: al tocar una tarjeta de Portafolios crece hasta el centro y
+         reproduce desde el principio, con sonido -->
+    <div class="pl-modal" id="plModal" hidden>
+        <div class="pl-modal-backdrop" id="plModalBackdrop"></div>
+        <figure class="pl-modal-card" id="plModalCard" tabindex="-1">
+            <!-- primer cuadro: tapa la carga, asi no hay pantalla negra -->
+            <img class="pl-modal-poster" id="plModalPoster" alt="" aria-hidden="true">
+            <video id="plModalVideo" playsinline preload="none" controls loop></video>
+            <!-- Respaldo: si la carga nativa no llega (Drive corta la
+                 cuota por IP), el mismo marco muestra el visor oficial
+                 de Drive, que va por el pipeline de YouTube -->
+            <iframe class="pl-modal-embed" id="plModalEmbed"
+                    title="Reproductor de Google Drive"
+                    allow="autoplay; fullscreen" allowfullscreen
+                    referrerpolicy="no-referrer"></iframe>
+            <span class="pl-modal-spin" aria-hidden="true"></span>
+            <figcaption class="pl-modal-name" id="plModalName"></figcaption>
+            <!-- Si Drive no responde (la cuota se pasa a veces), el visor
+                 avisa y deja reintentar en vez de girar para siempre -->
+            <div class="pl-modal-msg" id="plModalMsg">
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                <p>No se pudo cargar el video</p>
+                <button class="pl-modal-retry" id="plModalRetry" type="button">Reintentar</button>
+            </div>
+            <button class="pl-modal-close" id="plModalClose" type="button" aria-label="Cerrar visor">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+        </figure>
+    </div>
+
+    <script src="script.js?v=13"></script>
+</body>
+</html>
